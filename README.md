@@ -196,3 +196,40 @@
 - Use the seed script for demo/test data: `node seeders/initialData.js`.
 
 ---
+
+# How to Login as Admin
+
+1. **Register an Admin User (if not seeded):**
+
+   - Use Postman or frontend registration form.
+   - Set `role` to `"admin"` in the registration request.
+
+   Example POST request to `/api/auth/register`:
+
+   ```json
+   {
+     "name": "Administrator User Example Name",
+     "email": "admin@example.com",
+     "password": "Admin@1234",
+     "address": "123 Admin Street, City, Country",
+     "role": "admin"
+   }
+   ```
+
+2. **Login as Admin:**
+
+   - Go to the login page in your frontend (`/login`).
+   - Enter the admin email and password (e.g., `admin@example.com` / `Admin@1234`).
+   - On successful login, you will be redirected to `/admin/dashboard`.
+
+3. **If you used the seed script:**
+
+   - The seeded admin user is:
+     - **Email:** `admin@example.com`
+     - **Password:** `Admin@1234`
+   - Use these credentials to login as admin.
+
+4. **After login:**
+   - You will have access to all admin routes and features in the dashboard.
+
+---

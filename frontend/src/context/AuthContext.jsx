@@ -4,7 +4,7 @@ import * as jwt_decode from "jwt-decode";
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(() => localStorage.getItem("token") || "");
   const [user, setUser] = useState(() => {
     const t = localStorage.getItem("token");
@@ -31,4 +31,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export { AuthContext };
+export { AuthContext, AuthProvider };

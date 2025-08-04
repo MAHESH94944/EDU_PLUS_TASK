@@ -1,0 +1,49 @@
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+}
+
+.register-card {
+  max-width: 400px;
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(79, 70, 229, 0.08);
+  padding: 2em;
+}
+
+.register-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 1em;
+  color: #4f46e5;
+}
+
+.register-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.25em;
+}
+
+.register-form input {
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.register-form button {
+  width: 100%;
+  margin-top: 1em;
+}
+
+.register-link {
+  margin-top: 1em;
+  text-align: center;
+  display: block;
+  color: #4f46e5;
+  text-decoration: underline;
+  font-weight: 500;
+}

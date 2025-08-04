@@ -9,7 +9,10 @@ const {
 
 const register = async (req, res) => {
   try {
-    const { name, email, password, address, role } = req.body;
+    let { name, email, password, address, role } = req.body;
+
+    // Default role to "user" if not provided
+    if (!role) role = "user";
 
     // Field validations
     if (!name || name.length < 20 || name.length > 60) {
@@ -37,7 +40,7 @@ const register = async (req, res) => {
         .status(400)
         .json({ message: "Address must be at most 400 characters." });
     }
-    if (!["admin", "user", "store_owner"].includes(role)) {
+    if (!["admin", "user", "owner", "store_owner"].includes(role)) {
       return res.status(400).json({ message: "Invalid role." });
     }
 
@@ -76,12 +79,14 @@ const login = async (req, res) => {
       process.env.JWT_SECRET || "secretkey",
       { expiresIn: "1d" }
     );
+    // Include all user info needed for frontend routing
     return successResponse(res, {
       token,
       user: {
         id: user.id,
         name: user.name,
         email: user.email,
+        address: user.address,
         role: user.role,
       },
     });
